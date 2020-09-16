@@ -1,10 +1,10 @@
-const album = require("album");
-const LocalStrategy = require("album-local").Strategy;
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
 const db = require("../models");
 
-// Telling album we want to use a Local Strategy. In other words, we want login with a username/email and password
-album.use(
+// Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
+passport.use(
   new LocalStrategy(
     // Our user will sign in using an email, rather than a "username"
     {
@@ -39,13 +39,13 @@ album.use(
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
-album.serializeUser((user, cb) => {
+passport.serializeUser((user, cb) => {
   cb(null, user);
 });
 
-album.deserializeUser((obj, cb) => {
+passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
-// Exporting our configured album
-module.exports = album;
+// Exporting our configured passport
+module.exports = passport;

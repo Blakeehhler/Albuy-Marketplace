@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "AlbumDB_demo",
+    "database": "albumDB_demo",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
